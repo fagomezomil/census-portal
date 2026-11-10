@@ -1,0 +1,207 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ============================================
+   DEP Tucumán — Design System
+   Direction: Precision & Trust
+   Depth: Borders-only
+   Spacing: 4px base unit
+   Typography: Roboto (official Gov brand)
+   ============================================ */
+
+@theme inline {
+  /* Colors — Light mode (Papel archivo palette) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--accent-foreground);
+  --color-secondary: var(--muted);
+  --color-secondary-foreground: var(--muted-foreground);
+  --color-accent-light: var(--accent-light);
+  --color-accent-light-foreground: var(--accent-light-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-destructive: var(--destructive);
+  --color-ring: var(--ring);
+
+  /* Fonts — Roboto per Gov brand manual */
+  --font-sans: "Roboto", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Border radius — Sharp, technical */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+}
+
+/* Light mode — Papel archivo */
+:root {
+  --background: #fafaf8;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --muted: #f0f0ec;
+  --muted-foreground: #6b6b6b;
+  --border: rgba(26, 26, 26, 0.08);
+  --border-strong: rgba(26, 26, 26, 0.16);
+  --input: rgba(26, 26, 26, 0.06);
+  --accent: #005CA2;
+  --accent-foreground: #ffffff;
+  --accent-light: #84CFED;
+  --accent-light-foreground: #005CA2;
+  --highlight: #FEC800;
+  --highlight-foreground: #1a1a1a;
+  --destructive: #dc2626;
+  --success: #16a34a;
+  --warning: #d97706;
+  --ring: #005CA2;
+}
+
+/* Dark mode — Deep institutional */
+.dark {
+  --background: #0c0c0c;
+  --foreground: #ededed;
+  --card: #111111;
+  --card-foreground: #ededed;
+  --muted: #161616;
+  --muted-foreground: #a0a0a0;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.04);
+  --accent: #5B9BD5;
+  --accent-foreground: #0c0c0c;
+  --accent-light: #84CFED;
+  --accent-light-foreground: #0c0c0c;
+  --highlight: #FEC800;
+  --highlight-foreground: #1a1a1a;
+  --destructive: #f87171;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --ring: #5B9BD5;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tabular figures for all numeric data */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Animation timing tokens */
+:root {
+  --duration-micro: 150ms;
+  --duration-page: 200ms;
+  --duration-chart: 400ms;
+  --duration-counter: 1200ms;
+  --ease-default: cubic-bezier(0, 0, 0.2, 1); /* ease-out */
+}
+
+/* Hero number — the signature element */
+.hero-number {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hero number — monumental home page size */
+.hero-number--home {
+  font-size: clamp(3rem, 8vw, 5rem);
+}
+
+/* Hero number — section page size */
+.hero-number--section {
+  font-size: 3rem;
+}
+
+/* Monumental title — home hero */
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* Reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Delta badge — positive/negative variation indicators */
+.delta-positive {
+  background: var(--success);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.delta-negative {
+  background: var(--destructive);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Data table — institutional feel */
+.data-table th {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--muted-foreground);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.data-table td {
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: var(--muted);
+}
+
+/* Indicator bar — top bar with key stats */
+.indicator-bar {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.indicator-bar a:hover {
+  color: var(--accent);
+}
+
+/* Center all containers with symmetric x margins */
+.container {
+  margin-inline: auto;
+}
+
+/* Subtle border transitions */
+* {
+  transition: border-color 150ms ease-out, color 150ms ease-out, background-color 150ms ease-out;
+}
